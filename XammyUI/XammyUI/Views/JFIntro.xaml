@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.PrefersStatusBarHidden="True"
+             ios:Page.PreferredStatusBarUpdateAnimation="Fade"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XammyUI.Views.JFIntro">
+    <!--Main layout-->
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="CenterAndExpand" ColumnDefinitions="*,*" Padding="20">
+            <!-- Back button-->
+            <Button Grid.Row="0" Grid.Column="0" ImageSource="ArrowLeft" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#fee489" CornerRadius="15"/>
+            <!--Skip label-->
+            <Label Grid.Row="0" Grid.Column="1"  IsEnabled="{Binding IsEnabled}" Text="Skip" HorizontalTextAlignment="End" Margin="0,0,20,0" FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SkipCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <!--Main imagen with background-->
+            <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="Background" Aspect="AspectFill"/>
+            <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Source="Food" Margin="0,50,0,30" VerticalOptions="Start"/>
+            <!-- Title-->
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="30" FontAttributes="Bold">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="JK" TextColor="#fdc912"/>
+                        <Span Text=" Food" TextColor="#bf2103"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!-- Description-->
+            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="order food and wait for home,&#10;easy and fast." Padding="0,20" HorizontalTextAlignment="Center" FontSize="20"/>
+            <!-- Rounded button-->
+            <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding SkipCommand}" IsEnabled="{Binding IsEnabled}"  ImageSource="WhiteArrow"  HorizontalOptions="Center" BackgroundColor="#fdc912" HeightRequest="70" WidthRequest="70" CornerRadius="35" Margin="0,60,0,0"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
